@@ -1,0 +1,312 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg, rgba(41, 3, 119, 0.882) 0%, rgba(61, 0, 184, 0.724) 100%);
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+#section1{
+    height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.flexContainer {
+    display: flex;
+    padding-top: 20vh;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.flexContainer img{
+    padding-right: 20px;
+}
+
+.flexContainer h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: white;
+    line-height: 1.6em;
+    padding-left: 20px;
+}
+
+.flexContainer h1 span {
+    color: yellow;
+    font-size: 2em;
+}
+
+.searchContainer {
+    padding-top: 45px;
+    display: flex;
+    justify-content: center;
+}
+
+.searchContainer input {
+    padding: 15px 30px;
+    border-radius: 45px;
+    outline: none;
+    border: none;
+    margin: auto
+}
+
+.searchBar{
+    position: relative;
+    display: inline-block;
+    width: 400px;
+    margin: auto;
+}
+
+.search {
+    position: absolute;
+    right: 10px;
+    padding: 15px 30px;
+    border-top-right-radius: 45px;
+    border-bottom-right-radius: 45px;
+    border: none;
+    background-color: #0A32FF;
+    color: white;
+    transition: transform 0.5s ease;
+}
+
+.search:hover {
+    transform: translateX(10px);
+}
+
+.iconify {
+    padding-top: 2px;
+}
+
+.userStats h1{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 3em;
+    text-align: center;
+}
+
+.userImages{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.userImages img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.hidden{
+    display: none !important;
+}
+
+
+figcaption{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2em;
+}
+
+.cardContainer{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.left-side{
+    flex: 1 1 100px;
+    background-color: rgba(174, 174, 174, 0.303);
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.left-side img{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+
+.left-side h2{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: #5700C5;
+    margin-bottom: -10px;
+}
+
+.left-side span{
+    margin-top: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:1.2em;
+}
+
+
+.rightContainer{
+    flex: 2 1 400px;
+    background-color: rgba(204, 204, 204, 0.751);
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    padding: 10px;
+   
+}
+
+.right-side{
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Roboto';
+    font-weight: 400;
+    padding-top: 20px;
+}
+
+.right-side span{
+    font-size: 1.2em;
+}
+
+.rVal{
+    color:#5700C5;
+}
+.socials{
+    display: flex;
+    align-items: center;
+    padding-left: 4.5vw;
+    padding-top: 20px;
+}
+
+.socials span,.location span,.create,.quote{
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 1.2em;
+}
+
+.socials .iconify{
+    font-size: 3em;
+    margin:0px 10px;
+}
+
+.socials .iconify:hover{
+    scale: 1.2;
+}
+
+.loc,.creation{
+    display: inline-block;
+    padding-left: 4.5vw;
+    padding-top: 20px;
+}
+
+.quote{
+    font-size: 1.5em;
+    padding-top: 60px;
+    text-align: center;
+}
+
+@media only screen and (max-width:910px){
+    .flexContainer{
+        flex-direction: column;
+        padding-top: 40px;
+    }
+
+    .flexContainer img{
+        width: 80%;
+        min-width: 200px;
+    }
+
+    .flexContainer h1{
+        font-size: calc(1em + 1vw);
+        text-align: center;
+        padding-bottom: 20px;
+    }
+
+    .rightContainer span,.quote{
+        font-size: 1.1em;
+    }
+    .left-side h2{
+        font-size: 1.1em;
+    }
+}
+
+@media only screen and (max-width:640px){
+    .cardContainer{
+        padding:0
+    }
+
+    .right-side{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .right-side span{
+        flex: 1 1 50%;
+        padding-top: 15px;
+        padding-left: 2px;
+        
+    }
+
+    .socials{
+        padding-left: 2px;
+    }
+
+    .loc,.creation{
+        padding-left: 2px;
+    }
+
+    .socials .iconify{
+        font-size: 3em;
+    }
+}
+
+@media only screen and (max-width:420px){
+    .right-side{
+        flex-direction: column;
+    }
+
+    .right-side span{
+        padding-left: 10px;
+    }
+    .searchBar{
+        width: 350px;
+    }
+
+    .searchBar input{
+        padding:10px 20px;
+        width: 300px;
+    }
+
+
+    .search{
+        padding: 10px 20px;
+        right: 3px;
+    }
+
+    .socials{
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 10px;
+    }
+    
+    .socials .iconify{
+        padding-bottom: 10px;
+    }
+
+    .loc .rVal,.creation .rVal{
+        display: block;
+    }
+}
