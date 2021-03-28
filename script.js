@@ -47,3 +47,8 @@ document.querySelector('.userImages').addEventListener('click', (event) => {
         parentNode.classList.toggle('hidden');
     }
 })
+
+domElements.searchBox.addEventListener('keydown',(e)=>{
+    if(e.keyCode === 13)
+    domElements.searchButton.click();
+})

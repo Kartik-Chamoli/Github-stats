@@ -12,7 +12,6 @@ export let dynamicEle = {
             socials: document.querySelector(`.${id} .socials`),
             location: document.querySelector(`.${id} .location`),
             rightContainer:document.querySelector(`.${id} .rightContainer`),
-            cardContainer:document.querySelector
         }
     }
 }
