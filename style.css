@@ -121,6 +121,14 @@ figcaption{
     font-family: 'Roboto', sans-serif;
     font-size: 1.2em;
 }
+figure{
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+figure:hover{
+    transform: scale(1.1);
+}
 
 .cardContainer{
     display: flex;
