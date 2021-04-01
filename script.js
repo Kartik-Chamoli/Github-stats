@@ -5,11 +5,25 @@ import following from './models/following.js';
 import {domElements} from './views/base.js';
 import * as followersView from './views/followersView.js';
 
-let state = {};
+let state = {
+    userList:[],
+};
 
 domElements.searchButton.addEventListener('click', () => {
-    state.currentUser = new Search(searchView.getInput());
-    userController();
+    let queryVal = searchView.getInput();
+    try{
+        if(state.userList.includes(queryVal))
+        throw 'The user is already in the list click on his name below';
+        else{
+            state.userList.push(queryVal);
+            state.currentUser = new Search(queryVal);
+            userController();
+        }
+    }
+    catch(err){
+        alert(err);
+        console.log('Err: '+err);
+    }
 })
 
 async function userController() {
