@@ -92,11 +92,31 @@ body {
     padding-top: 2px;
 }
 
+.userStats{
+    position: relative;
+}
+
 .userStats h1,.followersContainer h1,.followingContainer h1{
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-size: 3em;
     text-align: center;
+}
+
+.clearAll{
+    position: absolute;
+    right: 10px;
+    top: 0;
+    border-radius: 50%;
+    padding: 20px;
+    border:none;
+    color: red;
+    background-color: rgb(200, 193, 193);
+}
+
+.clearAll:hover{
+    background-color: red;
+    color: white;
 }
 
 .userImages,.followers,.following{

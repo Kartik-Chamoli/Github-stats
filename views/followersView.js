@@ -19,7 +19,7 @@ export function followerContainer(currentUserId) {
     let followContainer = `<div class="followers ${currentUserId}">
     </div>
     `
-    domElements.followers.insertAdjacentHTML('beforeend', followContainer);
+    domElements.followersContainer.insertAdjacentHTML('beforeend', followContainer);
 }
 
 export function followingMarkup(following, currentUserId) {
@@ -37,5 +37,5 @@ export function followingContainer(currentUserId) {
     let followingContainer = `<div class="following ${currentUserId}">
     </div>
     `
-    domElements.following.insertAdjacentHTML('beforeend', followingContainer);
+    domElements.followingContainer.insertAdjacentHTML('beforeend', followingContainer);
 }

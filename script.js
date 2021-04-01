@@ -23,6 +23,7 @@ domElements.searchButton.addEventListener('click', () => {
     catch(err){
         alert(err);
         console.log('Err: '+err);
+        searchView.clearInput();
     }
 })
 
@@ -74,7 +75,7 @@ async function followingController(){
 }
 
 
-document.querySelector('.userImages').addEventListener('click', (event) => {
+domElements.userImages.addEventListener('click', (event) => {
     event.stopPropagation();
     if (event.target.className === "fig") {
         searchView.toggleVisibility(state.prev);
@@ -89,4 +90,24 @@ document.querySelector('.userImages').addEventListener('click', (event) => {
 domElements.searchBox.addEventListener('keydown',(e)=>{
     if(e.keyCode === 13)
     domElements.searchButton.click();
+})
+
+domElements.clearAll.addEventListener('click',(event)=>{
+    event.stopPropagation();
+    document.querySelectorAll('.cardContainer').forEach(item=>{
+        item.remove(item);
+    })
+
+    document.querySelectorAll('.followers').forEach(item=>{
+        item.remove(item);
+    })
+    
+    domElements.userImages.innerHTML="";
+
+    document.querySelectorAll('.following').forEach(item=>{
+        item.remove(item);
+    })
+
+    state={};
+    state.userList=[];
 })

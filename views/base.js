@@ -3,8 +3,11 @@ export let domElements = {
     searchButton: document.querySelector('.search'),
     userStats: document.querySelector('.userStats'),
     userImages:document.querySelector('.userImages'),
-    followers:document.querySelector('.followersContainer'),
-    following:document.querySelector('.followingContainer'),
+    followersContainer:document.querySelector('.followersContainer'),
+    followingContainer:document.querySelector('.followingContainer'),
+    clearAll:document.querySelector('.clearAll'),
+    followers:document.querySelector('.followers'),
+    following:document.querySelector('.following'),
 }
 
 export let dynamicEle = {
