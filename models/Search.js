@@ -9,6 +9,9 @@ export default class Search{
         let user = await fetch(`https://api.github.com/users/${this.query}`);
         this.userDetails = await user.json();
         if(this.userDetails.message){
+            if(this.userDetails.message.split(" ")[0]==="API")
+            throw 'API rate limit exceeded,try again after some time';
+            else
             throw 'User not found';
         }
         this.userDetails.id = 'g'+this.userDetails.id;
@@ -16,7 +19,7 @@ export default class Search{
         }
         catch(err){
             alert(err);
-            return err;
+            throw err;
         } 
     }
 

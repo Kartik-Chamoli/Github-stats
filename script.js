@@ -15,9 +15,9 @@ domElements.searchButton.addEventListener('click', () => {
 async function userController() {
     try {
        let err = await state.currentUser.getUser();
-       if(err==="User not found"){
-           throw "User not found";
-       }
+       if(err)
+       throw err;
+
         location.href = '#section2';
         searchView.clearInput();
         if (state.prev) {
@@ -33,7 +33,7 @@ async function userController() {
         followingController();
 
     } catch (err) {
-        console.log(err);
+        console.log('Error: '+err);
     }
 }
 
