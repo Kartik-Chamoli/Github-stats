@@ -1,13 +1,13 @@
 import {domElements,dynamicEle} from './base.js';
 
 
-export function userImagesMarkup(user){
+export function userImagesMarkup(ele,user){
     let markup = `<figure class="${user.id}">
     <img class="fig" src="${user.avatar_url}" alt="User Image">
       <figcaption class="fig">${user.name}</figcaption>
   </figure>`
 
-  domElements.userImages.insertAdjacentHTML('beforeend',markup);
+  ele.insertAdjacentHTML('beforeend',markup);
 }
 
 
@@ -73,8 +73,10 @@ function cardMarkup(user){
 }
 
 export function toggleVisibility(hideId){
-    let ele=document.querySelector(`.cardContainer.${hideId}`);     
-    ele.classList.toggle('hidden');
+    let ele=document.querySelectorAll(`.${hideId}`); 
+    for(let i=1;i<4;i++){
+        ele[i].classList.toggle('hidden');
+    }    
 }
 
 export function clearDom(){

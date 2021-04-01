@@ -1,14 +1,14 @@
 import * as searchView from './views/searchView.js';
 import Search from './models/Search.js';
-import {
-    domElements
-} from './views/base.js';
+import followers from './models/followers.js';
+import following from './models/following.js';
+import {domElements} from './views/base.js';
+import * as followersView from './views/followersView.js';
 
 let state = {};
 
 domElements.searchButton.addEventListener('click', () => {
     state.currentUser = new Search(searchView.getInput());
-    console.log(state);
     userController();
 })
 
@@ -26,10 +26,36 @@ async function userController() {
 
         state.prev = state.currentUser.userDetails.id;
 
-        searchView.userImagesMarkup(state.currentUser.userDetails);
+        searchView.userImagesMarkup(domElements.userImages,state.currentUser.userDetails);
         searchView.createCard(state.currentUser.userDetails);
+        
+        followerController();
+        followingController();
+
     } catch (err) {
         console.log(err);
+    }
+}
+
+async function followerController(){
+    let follows = new followers(state.currentUser.query);
+    await follows.selectFollowers();
+   
+    followersView.followerContainer(state.currentUser.userDetails.id);
+
+    for(let i=0;i<Math.min(5,follows.followerArr.length);i++){
+        followersView.followerMarkup(follows.followerArr[i],state.currentUser.userDetails.id);
+    }
+}
+
+async function followingController(){
+    let followings = new following(state.currentUser.query);
+    await followings.selectFollowing();
+   
+    followersView.followingContainer(state.currentUser.userDetails.id);
+
+    for(let i=0;i<Math.min(5,followings.followingArr.length);i++){
+        followersView.followingMarkup(followings.followingArr[i],state.currentUser.userDetails.id);
     }
 }
 
@@ -37,14 +63,12 @@ async function userController() {
 document.querySelector('.userImages').addEventListener('click', (event) => {
     event.stopPropagation();
     if (event.target.className === "fig") {
-        let currentVisible=document.querySelector(`.cardContainer.${state.prev}`);
-        currentVisible.classList.toggle('hidden');
-
+        searchView.toggleVisibility(state.prev);
+        
         let parentClass=event.target.parentNode.className;
         state.prev = parentClass;
-        let parentNode =
-        document.querySelector(`.cardContainer.${parentClass}`);
-        parentNode.classList.toggle('hidden');
+        
+        searchView.toggleVisibility(state.prev);
     }
 })
 
